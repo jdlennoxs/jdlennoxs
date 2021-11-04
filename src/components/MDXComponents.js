@@ -7,7 +7,10 @@ import TOCInline from './TOCInline'
 import Pre from './Pre'
 import { BlogNewsletterForm } from './NewsletterForm'
 
+const FullWidth = () => <div className="h-96 bg-hot full-width" />
+
 export const MDXComponents = {
+  FullWidth,
   Image,
   TOCInline,
   a: CustomLink,

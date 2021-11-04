@@ -130,6 +130,7 @@ export async function getAllFilesFrontMatter(folder) {
     if (frontmatter.draft !== true) {
       allFrontMatter.push({
         ...frontmatter,
+        readingTime: readingTime(source),
         slug: formatSlug(fileName),
         date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
       })

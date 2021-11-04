@@ -1,6 +1,7 @@
 import '@/css/tailwind.css'
 import '@/css/prism.css'
 
+import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 
@@ -10,7 +11,7 @@ import { ClientReload } from '@/components/ClientReload'
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
       <Head>

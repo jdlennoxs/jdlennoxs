@@ -22,9 +22,9 @@
  */
 const TOCInline = ({
   toc,
-  indentDepth = 3,
+  indentDepth = 2,
   fromHeading = 1,
-  toHeading = 6,
+  toHeading = 3,
   asDisclosure = false,
   exclude = '',
 }) => {
@@ -40,8 +40,10 @@ const TOCInline = ({
   const tocList = (
     <ul>
       {filteredToc.map((heading) => (
-        <li key={heading.value} className={`${heading.depth >= indentDepth && 'ml-6'}`}>
-          <a href={heading.url}>{heading.value}</a>
+        <li key={heading.value} className={`${heading.depth >= indentDepth && 'ml-2'}`}>
+          <a className="hover:font-bold text-sm" href={heading.url}>
+            {heading.value}
+          </a>
         </li>
       ))}
     </ul>
@@ -51,8 +53,8 @@ const TOCInline = ({
     <>
       {asDisclosure ? (
         <details open>
-          <summary className="pt-2 pb-2 ml-6 text-xl font-bold">Table of Contents</summary>
-          <div className="ml-6">{tocList}</div>
+          <summary className="pt-2 pb-2 font-bold">Table of Contents</summary>
+          <div>{tocList}</div>
         </details>
       ) : (
         tocList

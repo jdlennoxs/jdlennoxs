@@ -1,16 +1,26 @@
 ---
-name: Tails Azimuth
+name: Jack Scott
 avatar: /static/images/avatar.png
-occupation: Professor of Atmospheric Science
-company: Stanford University
-email: address@yoursite.com
-twitter: https://twitter.com/Twitter
-linkedin: https://www.linkedin.com
-github: https://github.com
+occupation: Software Lead
+company: Moneyhub
+linkedin: https://www.linkedin.com/in/jack-scott-2920ab47
+github: https://github.com/jdlennoxs
 ---
 
-Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
+### Work
 
-He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.
+Jack is a full-stack developer based in Bristol. He leads the core product development team at Moneyhub and is responsible for developing features in a React codebase from inception to release.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+Jack is interested in interactive art and photography.
+
+### Bio
+
+_1991_ Born in UK.
+
+_2014_ Graduated with Master's in Aeropsace Engineering from Bristol University
+
+_2014_ Started software journey at IPL, Bath
+
+_2017_ Play Sports Network
+
+_2020_ Joined Moneyhub

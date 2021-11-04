@@ -9,17 +9,18 @@ import ThemeSwitch from './ThemeSwitch'
 
 const LayoutWrapper = ({ children }) => {
   return (
-    <SectionContainer>
-      <div className="flex flex-col justify-between h-screen">
-        <header className="flex items-center justify-between py-10">
-          <div>
+    // <SectionContainer>
+    <div className="flex flex-col justify-between h-screen">
+      <div className="w-screen">
+        <header className="flex items-center justify-between py-2 content-width">
+          <div className="inline-flex items-baseline justify-between">
             <Link href="/" aria-label="Tailwind CSS Blog">
-              <div className="flex items-center justify-between">
-                <div className="mr-3">
-                  <Logo />
-                </div>
+              <div>
+                {/* <div className="mr-3">
+                      <Logo />
+                    </div> */}
                 {typeof siteMetadata.headerTitle === 'string' ? (
-                  <div className="hidden h-6 text-2xl font-semibold sm:block">
+                  <div className="text-gray-700 dark:text-gray-100 h-6 leading-none font-semibold pr-4 tracking-wider">
                     {siteMetadata.headerTitle}
                   </div>
                 ) : (
@@ -27,27 +28,29 @@ const LayoutWrapper = ({ children }) => {
                 )}
               </div>
             </Link>
-          </div>
-          <div className="flex items-center text-base leading-5">
-            <div className="hidden sm:block">
+            <div className="invisible sm:visible">
               {headerNavLinks.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100"
+                  className="leading-none text-gray-700 sm:p-4 dark:text-gray-100 hover:underline"
                 >
                   {link.title}
                 </Link>
               ))}
             </div>
+          </div>
+          <div className="flex items-center text-base leading-5">
             <ThemeSwitch />
             <MobileNav />
           </div>
         </header>
-        <main className="mb-auto">{children}</main>
-        <Footer />
       </div>
-    </SectionContainer>
+
+      <main className="mb-auto">{children}</main>
+      <Footer />
+    </div>
+    // </SectionContainer>
   )
 }
 

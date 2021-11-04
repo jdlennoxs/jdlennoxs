@@ -3,9 +3,21 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   mode: 'jit',
-  purge: ['./pages/**/*.js', './components/**/*.js', './layouts/**/*.js', './lib/**/*.js'],
+  purge: [
+    './src/pages/**/*.{js,tsx}',
+    './src/components/**/*.js',
+    './src/layouts/**/*.js',
+    './src/lib/**/*.js',
+  ],
   darkMode: 'class',
   theme: {
+    minHeight: {
+      0: '0',
+      '1/4': '25vh',
+      '1/2': '50vh',
+      '3/4': '75vh',
+      full: '100vh',
+    },
     extend: {
       spacing: {
         '9/16': '56.25%',
@@ -17,42 +29,53 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['freight-sans-pro', ...defaultTheme.fontFamily.sans],
+        serif: ['garamond-premier-pro', ...defaultTheme.fontFamily.serif],
       },
       colors: {
-        primary: colors.teal,
-        gray: colors.trueGray,
+        highlight: '#0F1CE7',
+        subtle: '#ffcec0',
+        subtler: '#FBF2EE',
+        hot: '#ff9191',
+        fuschia: '#FF8585',
+        primary: colors.blue,
+        gray: colors.blueGray,
+        warm: colors.warmGray,
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.gray.700'),
+            color: theme('colors.gray.600'),
+            fontFamily: 'garamond-premier-pro',
             a: {
-              color: theme('colors.primary.500'),
+              color: theme('colors.highlight'),
               '&:hover': {
                 color: theme('colors.primary.600'),
               },
               code: { color: theme('colors.primary.400') },
             },
             h1: {
-              fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.gray.900'),
+              fontFamily: 'freight-sans-pro',
+              fontWeight: '600',
+              letterSpacing: theme('letterSpacing.wider'),
+              color: theme('colors.highlight'),
             },
             h2: {
-              fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.gray.900'),
+              fontFamily: 'freight-sans-pro',
+              fontWeight: '600',
+              letterSpacing: theme('letterSpacing.wider'),
+              color: theme('colors.highlight'),
             },
             h3: {
-              fontWeight: '600',
-              color: theme('colors.gray.900'),
+              fontFamily: 'freight-sans-pro',
+              letterSpacing: theme('letterSpacing.wider'),
+              color: theme('colors.gray.700'),
             },
             'h4,h5,h6': {
-              color: theme('colors.gray.900'),
+              color: theme('colors.gray.600'),
             },
             code: {
-              color: theme('colors.pink.500'),
+              color: theme('colors.fuschia'),
               backgroundColor: theme('colors.gray.100'),
               paddingLeft: '4px',
               paddingRight: '4px',
