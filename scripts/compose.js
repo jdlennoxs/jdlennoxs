@@ -46,6 +46,7 @@ const genFrontMatter = (answers) => {
   summary: ${answers.summary ? answers.summary : ' '}
   images: []
   layout: ${answers.layout}
+  type: ${answers.type}
   `
 
   if (answers.authors.length > 0) {
