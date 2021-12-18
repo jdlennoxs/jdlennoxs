@@ -97,7 +97,7 @@ inquirer
       name: 'type',
       message: 'Select type',
       type: 'list',
-      choices: getTypes,
+      choices: ['article', 'book'],
     },
     {
       name: 'layout',
@@ -114,7 +114,7 @@ inquirer
       .replace(/ /g, '-')
       .replace(/-+/g, '-')
     const frontMatter = genFrontMatter(answers)
-    const filePath = `data/posts/${answers.type}/${fileName ? fileName : 'untitled'}.${
+    const filePath = `data/posts/${fileName ? fileName : 'untitled'}.${
       answers.extension ? answers.extension : 'md'
     }`
     fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {
