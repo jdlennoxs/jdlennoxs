@@ -5,7 +5,7 @@ const projectsData = [
     to the desired date and press "Go". No more worrying about lost keys or
     forgotten handphones with this simple yet affordable solution.`,
     imgSrc: '/static/images/time-machine.jpg',
-    href: '/blog/the-time-machine',
+    href: '/posts/the-time-machine',
   },
   {
     title: 'A Search Engine',
@@ -21,13 +21,13 @@ const projectsData = [
     to the desired date and press "Go". No more worrying about lost keys or
     forgotten handphones with this simple yet affordable solution.`,
     imgSrc: '/static/images/time-machine.jpg',
-    href: '/blog/the-time-machine',
+    href: '/posts/the-time-machine',
   },
   {
     title: 'Boids',
     description: `A simple flocking simulation making use of alignment, cohesion and separation forces.`,
     imgSrc: '/static/images/boids.jpg',
-    href: '/blog/simulating-flocking-behaviour-in-threejs',
+    href: '/posts/simulating-flocking-behaviour-in-threejs',
   },
 ]
 

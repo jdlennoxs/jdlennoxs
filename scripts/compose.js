@@ -20,6 +20,12 @@ const getLayouts = () => {
   return layoutList
 }
 
+const getTypes = () => {
+  const postsPath = path.join(root, 'data', 'posts')
+  const postTypes = fs.readdirSync(postsPath).map((filename) => path.parse(filename).name)
+  return postTypes
+}
+
 const genFrontMatter = (answers) => {
   let d = new Date()
   const date = [
@@ -50,6 +56,7 @@ const genFrontMatter = (answers) => {
 
   return frontMatter
 }
+getTypes()
 
 inquirer
   .prompt([
@@ -87,6 +94,12 @@ inquirer
       type: 'input',
     },
     {
+      name: 'type',
+      message: 'Select type',
+      type: 'list',
+      choices: getTypes,
+    },
+    {
       name: 'layout',
       message: 'Select layout',
       type: 'list',
@@ -101,7 +114,7 @@ inquirer
       .replace(/ /g, '-')
       .replace(/-+/g, '-')
     const frontMatter = genFrontMatter(answers)
-    const filePath = `data/blog/${fileName ? fileName : 'untitled'}.${
+    const filePath = `data/posts/${answers.type}/${fileName ? fileName : 'untitled'}.${
       answers.extension ? answers.extension : 'md'
     }`
     fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {
@@ -109,7 +122,7 @@ inquirer
         console.log(err)
         throw err
       } else {
-        console.log(`Blog post generated successfully at ${filePath}`)
+        console.log(`${answers.type} post generated successfully at ${filePath}`)
       }
     })
   })

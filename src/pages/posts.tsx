@@ -7,7 +7,7 @@ import { GetStaticProps } from 'next'
 export const POSTS_PER_PAGE = 5
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllFilesFrontMatter('blog')
+  const posts = await getAllFilesFrontMatter('posts')
   const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
   const pagination = {
     currentPage: 1,

@@ -15,7 +15,7 @@ import projectsData from '@/data/projectsData'
 const MAX_DISPLAY = 4
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllFilesFrontMatter('blog')
+  const posts = await getAllFilesFrontMatter('posts')
 
   return { props: { posts } }
 }
@@ -56,7 +56,7 @@ const Home = ({ posts }: any) => {
                       readingTime={readingTime}
                       lastmod={lastmod}
                       date={date}
-                      href={`/blog/${slug}`}
+                      href={`/posts/${slug}`}
                       imgSrc={imgSrc}
                       type="article"
                     />
@@ -67,7 +67,7 @@ const Home = ({ posts }: any) => {
             {posts.length > MAX_DISPLAY && (
               <div className="flex justify-end text-base font-medium leading-6">
                 <Link
-                  href="/blog"
+                  href="/posts"
                   className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                   aria-label="all posts"
                 >
@@ -94,7 +94,7 @@ const Home = ({ posts }: any) => {
             {posts.length > MAX_DISPLAY && (
               <div className="flex justify-end text-base font-medium leading-6">
                 <Link
-                  href="/blog"
+                  href="/posts"
                   className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                   aria-label="all posts"
                 >

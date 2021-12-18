@@ -8,10 +8,10 @@ import Tag from '@/components/Tag'
 import TOCInline from '@/components/TOCInline'
 import siteMetadata from '@/data/siteMetadata'
 
-const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
+const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/posts/${fileName}`
 const discussUrl = (slug) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `${siteMetadata.siteUrl}/blog/${slug}`
+    `${siteMetadata.siteUrl}/posts/${slug}`
   )}`
 
 const postDateTemplate = { year: 'numeric', month: 'long', day: 'numeric' }
@@ -22,7 +22,7 @@ export default function PostLayout({ toc, frontMatter, authorDetails, next, prev
   return (
     <SectionContainer>
       <BlogSEO
-        url={`${siteMetadata.siteUrl}/blog/${slug}`}
+        url={`${siteMetadata.siteUrl}/posts/${slug}`}
         authorDetails={authorDetails}
         {...frontMatter}
       />
