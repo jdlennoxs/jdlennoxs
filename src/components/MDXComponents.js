@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
 import Image from './Image'
 import CustomLink from './Link'
@@ -7,7 +7,7 @@ import TOCInline from './TOCInline'
 import Pre from './Pre'
 import { BlogNewsletterForm } from './NewsletterForm'
 
-const FullWidth = () => <div className="h-96 bg-hot full-width" />
+const FullWidth = () => <div className="h-96 bg-gray-800 full-width full-bleed" />
 
 export const MDXComponents = {
   FullWidth,
@@ -16,9 +16,13 @@ export const MDXComponents = {
   a: CustomLink,
   pre: Pre,
   BlogNewsletterForm: BlogNewsletterForm,
-  wrapper: ({ components, layout, ...rest }) => {
+  wrapper: ({ children, components, layout, ...rest }) => {
     const Layout = require(`../layouts/${layout}`).default
-    return <Layout {...rest} />
+    return (
+      <Layout {...rest}>
+        <div className="post-container">{children}</div>
+      </Layout>
+    )
   },
 }
 

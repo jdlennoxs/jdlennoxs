@@ -12,7 +12,7 @@ const getAuthors = () => {
 }
 
 const getLayouts = () => {
-  const layoutPath = path.join(root, 'layouts')
+  const layoutPath = path.join(root, 'src', 'layouts')
   const layoutList = fs
     .readdirSync(layoutPath)
     .map((filename) => path.parse(filename).name)
@@ -106,6 +106,7 @@ inquirer
     }`
     fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {
       if (err) {
+        console.log(err)
         throw err
       } else {
         console.log(`Blog post generated successfully at ${filePath}`)
@@ -116,6 +117,7 @@ inquirer
     if (error.isTtyError) {
       console.log("Prompt couldn't be rendered in the current environment")
     } else {
+      console.log(error)
       console.log('Something went wrong, sorry!')
     }
   })

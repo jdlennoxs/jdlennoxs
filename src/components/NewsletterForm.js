@@ -67,7 +67,7 @@ const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
         </div>
       </form>
       {error && (
-        <div className="pt-2 text-sm text-red-500 w-72 sm:w-96 dark:text-red-400">{message}</div>
+        <div className="pt-2 text-sm text-rose-500 w-72 sm:w-96 dark:text-rose-400">{message}</div>
       )}
     </div>
   )

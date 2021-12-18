@@ -25,21 +25,27 @@ const CoverImage = ({ href, title, imgSrc }) => (
   </div>
 )
 
-const ArticleCard = ({ title, readingTime, lastmod, date, href, imgSrc }) => (
-  <div className="max-w-xs hover:scale-105 hover:transform hover:border-t-2 border-t-0 border-highlight transition duration-600 min-h-[124px]">
-    <Link href={href} aria-label={`Link to ${title}`}>
-      {imgSrc ? <CoverImage title={title} imgSrc={imgSrc} href={href} /> : null}
-      <div>
-        <blockquote className="p-2">
-          <h4 className="text-md font-semibold pb-1">{title}</h4>
-          <div className="flex justify-between text-xs">
-            <time>{lastmod ? formatDate(lastmod) : formatDate(date)}</time>
-            <span>{readingTime && readingTime.text}</span>
-          </div>
-        </blockquote>
-      </div>
-    </Link>
-  </div>
-)
+const ArticleCard = ({ title, readingTime, lastmod, date, href, imgSrc, type }) => {
+  const lastModified = lastmod || date
+  console.log(type)
+  return (
+    <div className="group max-w-xs transition duration-600 min-h-[80px]">
+      <Link href={href} aria-label={`Link to ${title}`}>
+        {imgSrc ? <CoverImage title={title} imgSrc={imgSrc} href={href} /> : null}
+        <div>
+          <blockquote className="p-2">
+            <h4 className="text-md font-semibold pb-1 group-hover:text-highlight ">{title}</h4>
+            {type === 'article' ? (
+              <div className="flex justify-between text-xs">
+                <time>{formatDate(lastModified)}</time>
+                <span>{readingTime && readingTime.text}</span>
+              </div>
+            ) : null}
+          </blockquote>
+        </div>
+      </Link>
+    </div>
+  )
+}
 
 export default ArticleCard

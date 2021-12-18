@@ -58,6 +58,7 @@ const Home = ({ posts }: any) => {
                       date={date}
                       href={`/blog/${slug}`}
                       imgSrc={imgSrc}
+                      type="article"
                     />
                   </li>
                 )

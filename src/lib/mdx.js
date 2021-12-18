@@ -127,14 +127,14 @@ export async function getAllFilesFrontMatter(folder) {
     }
     const source = fs.readFileSync(file, 'utf8')
     const { data: frontmatter } = matter(source)
-    if (frontmatter.draft !== true) {
-      allFrontMatter.push({
-        ...frontmatter,
-        readingTime: readingTime(source),
-        slug: formatSlug(fileName),
-        date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
-      })
-    }
+    // if (frontmatter.draft !== true) {
+    allFrontMatter.push({
+      ...frontmatter,
+      readingTime: readingTime(source),
+      slug: formatSlug(fileName),
+      date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
+    })
+    // }
   })
 
   return allFrontMatter.sort((a, b) => dateSortDesc(a.date, b.date))

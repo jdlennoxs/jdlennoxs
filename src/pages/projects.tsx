@@ -9,7 +9,7 @@ export default function Projects() {
   return (
     <div className="content-width">
       <PageSEO title={`Projects - ${siteMetadata.author}`} description={siteMetadata.description} />
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+      <div className=" divide-gray-200 dark:divide-gray-700">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <PageTitle>Projects</PageTitle>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">

@@ -29,62 +29,64 @@ export default function PostLayout({ toc, frontMatter, authorDetails, next, prev
       <ScrollTopAndComment />
       <article>
         <div>
-          <header className="pt-6 xl:pb-6">
-            <div className="py-10">
-              <div>
-                <PageTitle>{title}</PageTitle>
+          <div className="bg-rose-50 full-width">
+            <header className="pt-6 xl:pb-6 content-width">
+              <div className="py-10">
+                <div>
+                  <PageTitle>{title}</PageTitle>
+                </div>
               </div>
-            </div>
-            <div className="text-sm font-medium leading-5 flex justify-between">
-              <div className="py-4 xl:py-8 ">
-                <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                  Last updated
-                </h2>
-                <dd className="text-base font-medium leading-6 text-gray-700 dark:text-gray-400">
-                  <time dateTime={date} className="text-sm">
-                    {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
-                  </time>
-                </dd>
-              </div>
-              {tags && (
+              <div className="text-sm font-medium leading-5 flex justify-between">
                 <div className="py-4 xl:py-8 ">
                   <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                    Tags
+                    Last updated
                   </h2>
-                  <div className="flex flex-wrap">
-                    {tags.map((tag) => (
-                      <Tag key={tag} text={tag} />
-                    ))}
-                  </div>
+                  <dd className="text-base font-medium leading-6 text-gray-700 dark:text-gray-400">
+                    <time dateTime={date} className="text-sm">
+                      {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
+                    </time>
+                  </dd>
                 </div>
-              )}
-            </div>
-          </header>
-          <div className="p-4 xl:p-8 bg-gray-50 full-width">
+                {tags && (
+                  <div className="py-4 xl:py-8 ">
+                    <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                      Tags
+                    </h2>
+                    <div className="flex flex-wrap">
+                      {tags.map((tag) => (
+                        <Tag key={tag} text={tag} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </header>
+          </div>
+          {/* <div className="p-4 xl:p-8 bg-gray-50 full-width">
             <div className="content-width">
               <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                 Table of contents
               </h2>
               <TOCInline toc={toc} />
             </div>
-          </div>
-          <div
+          </div> */}
+          {/* <div
             className="pb-8 divide-y divide-gray-200 xl:divide-y-0 dark:divide-gray-700 xl:grid xl:grid-cols-1 xl:gap-x-6"
             style={{ gridTemplateRows: '1fr' }}
-          >
-            <div className="max-w-lg mx-auto divide-y divide-gray-200 dark:divide-gray-700 xl:pb-0 xl:col-span-1 xl:row-span-2 xl:row-start-1 row-start-2">
-              <div className="pt-10 pb-8 prose dark:prose-dark">{children}</div>
-              <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={discussUrl(slug)} rel="nofollow">
-                  {'Discuss on Twitter'}
-                </Link>
-                {` • `}
-                <Link href={editUrl(fileName)}>{'View on GitHub'}</Link>
-              </div>
-              <Comments frontMatter={frontMatter} />
+          > */}
+          <div className="divide-y divide-gray-200 dark:divide-gray-700">
+            <div className="pt-10 pb-8 prose max-w-none">{children}</div>
+            <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
+              <Link href={discussUrl(slug)} rel="nofollow">
+                {'Discuss on Twitter'}
+              </Link>
+              {` • `}
+              <Link href={editUrl(fileName)}>{'View on GitHub'}</Link>
             </div>
+            <Comments frontMatter={frontMatter} />
           </div>
         </div>
+        {/* </div> */}
       </article>
     </SectionContainer>
   )

@@ -9,7 +9,7 @@ export default function AuthorLayout({ children, frontMatter }) {
   return (
     <div className="content-width">
       <PageSEO title={`About - ${name}`} description={`About me - ${name}`} />
-      <div className="divide-y">
+      <div className="">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <PageTitle>About</PageTitle>
         </div>
