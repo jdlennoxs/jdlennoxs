@@ -14,16 +14,14 @@ export async function getAllTags(type) {
   files.forEach((file) => {
     const source = fs.readFileSync(path.join(root, 'data', type, file), 'utf8')
     const { data } = matter(source)
-    if (data.tags && data.draft !== true) {
-      data.tags.forEach((tag) => {
-        const formattedTag = kebabCase(tag)
-        if (formattedTag in tagCount) {
-          tagCount[formattedTag] += 1
-        } else {
-          tagCount[formattedTag] = 1
-        }
-      })
-    }
+    data.tags.forEach((tag) => {
+      const formattedTag = kebabCase(tag)
+      if (formattedTag in tagCount) {
+        tagCount[formattedTag] += 1
+      } else {
+        tagCount[formattedTag] = 1
+      }
+    })
   })
 
   return tagCount

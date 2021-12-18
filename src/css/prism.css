@@ -7,11 +7,15 @@
 
 /* Code title styles */
 .remark-code-title {
-  @apply px-5 py-3 font-mono text-sm font-bold text-gray-200 bg-gray-700 rounded-t;
+  @apply px-5 py-2 font-mono text-xs font-bold text-gray-200 bg-gray-700 rounded-t full-bleed;
 }
 
 .remark-code-title + div > pre {
   @apply mt-0 rounded-t-none;
+}
+
+div > pre {
+  @apply mt-0 !important;
 }
 
 /* Code block styles */

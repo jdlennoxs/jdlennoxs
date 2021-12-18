@@ -7,6 +7,7 @@ import { BlogSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import TOCInline from '@/components/TOCInline'
 import siteMetadata from '@/data/siteMetadata'
+import Draft from '@/components/Draft'
 
 const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/posts/${fileName}`
 const discussUrl = (slug) =>
@@ -17,7 +18,7 @@ const discussUrl = (slug) =>
 const postDateTemplate = { year: 'numeric', month: 'long', day: 'numeric' }
 
 export default function PostLayout({ toc, frontMatter, authorDetails, next, prev, children }) {
-  const { slug, fileName, date, title, tags } = frontMatter
+  const { slug, fileName, date, title, tags, draft } = frontMatter
 
   return (
     <SectionContainer>
@@ -75,7 +76,10 @@ export default function PostLayout({ toc, frontMatter, authorDetails, next, prev
             style={{ gridTemplateRows: '1fr' }}
           > */}
           <div className="divide-y divide-gray-200 dark:divide-gray-700">
-            <div className="pt-10 pb-8 prose max-w-none">{children}</div>
+            <div className="pb-8 prose max-w-none">
+              {children}
+              {draft ? <Draft /> : null}
+            </div>
             <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
               <Link href={discussUrl(slug)} rel="nofollow">
                 {'Discuss on Twitter'}
