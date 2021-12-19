@@ -7,7 +7,7 @@
 
 /* Code title styles */
 .remark-code-title {
-  @apply px-5 py-2 font-mono text-xs font-bold text-gray-200 bg-gray-700 rounded-t full-bleed;
+  @apply px-5 py-2 font-mono text-xs font-bold text-gray-200 bg-gray-700 rounded-t;
 }
 
 .remark-code-title + div > pre {
