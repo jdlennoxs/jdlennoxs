@@ -1,5 +1,11 @@
 nextApp:
   component: '@sls-next/serverless-component'
   inputs:
-    domain: 'jdlennoxs.com'
-    domainMinimumProtocolVersion: 'TLSv1.2_2018'
+    cloudfront:
+      distributionId: E2JDAKSJDZ2NR4
+    domain: ['www.jdlennoxs.com']
+    domainType: 'both'
+    domainRedirects:
+      jdlennoxs.com: http://www.jdlennoxs.com
+    bucketName: www.jdlennoxs.com
+    bucketRegion: eu-west-2
