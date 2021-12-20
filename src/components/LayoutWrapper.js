@@ -12,7 +12,7 @@ const LayoutWrapper = ({ children }) => {
     // <SectionContainer>
     <div className="flex flex-col justify-between h-screen">
       <div className="w-screen">
-        <header className="flex items-center justify-between py-4 content-width">
+        <header className="flex items-center justify-between py-2 content-width">
           <div className="inline-flex items-baseline justify-between">
             <Link href="/" aria-label="Tailwind CSS Blog">
               <div>

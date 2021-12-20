@@ -48,7 +48,7 @@ const Home = ({ posts }: any) => {
             <ul className="grid gap-x-2 gap-y-4 xl:grid-cols-2">
               {!posts.length && 'No posts found.'}
               {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
-                const { slug, title, readingTime, lastmod, date, imgSrc, type } = frontMatter
+                const { slug, title, readingTime, lastmod, date, imgSrc } = frontMatter
                 return (
                   <li key={slug}>
                     <ArticleCard
@@ -58,7 +58,7 @@ const Home = ({ posts }: any) => {
                       date={date}
                       href={`/posts/${slug}`}
                       imgSrc={imgSrc}
-                      type={type}
+                      type="article"
                     />
                   </li>
                 )
@@ -80,21 +80,17 @@ const Home = ({ posts }: any) => {
         <section className="py-6 bg-gray-50">
           <div className="flex flex-col space-y-10 content-width">
             <PageTitle>projects</PageTitle>
-            <ul className="grid gap-x-4 gap-y-4 md:grid-cols-2 max-w-screen-md">
-              {projectsData.map((project) => {
-                const { title, imgSrc, href, description } = project
-                return (
-                  <li key={title}>
-                    <ArticleCard
-                      title={title}
-                      description={description}
-                      imgSrc={imgSrc}
-                      href={href}
-                    />
-                  </li>
-                )
-              })}
-            </ul>
+            <div className="grid gap-x-4 gap-y-4 md:grid-cols-2 max-w-screen-md">
+              {projectsData.map((d) => (
+                <ArticleCard
+                  key={d.title}
+                  title={d.title}
+                  description={d.description}
+                  imgSrc={d.imgSrc}
+                  href={d.href}
+                />
+              ))}
+            </div>
             {posts.length > MAX_DISPLAY && (
               <div className="flex justify-end text-base font-medium leading-6">
                 <Link
