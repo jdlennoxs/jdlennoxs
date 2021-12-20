@@ -3,7 +3,7 @@ nextApp:
   inputs:
     cloudfront:
       distributionId: E2JDAKSJDZ2NR4
-    domain: ['www.jdlennoxs.com']
+    domain: ['jdlennoxs.com']
     domainType: 'both'
     domainRedirects:
       jdlennoxs.com: http://www.jdlennoxs.com
