@@ -1,20 +1,31 @@
-import Image from 'next/image'
+// import Image from 'next/image'
 import Link from '@/components/Link'
 import formatDate from '@/lib/utils/formatDate'
+
+interface CardProps {
+  title: any
+  readingTime?: any
+  lastmod?: any
+  date?: any
+  href: any
+  imgSrc: any
+  type?: any
+  description?: any
+}
 
 const CoverImage = ({ href, title, imgSrc }) => (
   <div className="w-full" style={{ fontSize: '0' }}>
     {href ? (
-      <Image
+      <img
         alt={title}
         src={imgSrc}
-        layout="responsive"
+        // layout="responsive"
         width={360}
         height={360}
         className="object-cover object-center"
       />
     ) : (
-      <Image
+      <img
         alt={title}
         src={imgSrc}
         width={360}
@@ -25,9 +36,17 @@ const CoverImage = ({ href, title, imgSrc }) => (
   </div>
 )
 
-const ArticleCard = ({ title, readingTime, lastmod, date, href, imgSrc, type }) => {
+const ArticleCard = ({
+  title,
+  readingTime,
+  lastmod,
+  date,
+  href,
+  imgSrc,
+  type,
+  description,
+}: CardProps) => {
   const lastModified = lastmod || date
-  console.log(type)
   return (
     <div className="group max-w-xs transition duration-600 min-h-[80px]">
       <Link href={href} aria-label={`Link to ${title}`}>

@@ -49,7 +49,7 @@ module.exports = {
         DEFAULT: {
           css: {
             color: theme('colors.gray.800'),
-            fontFamily: 'adobe-caslon-pro',
+            // fontFamily: 'adobe-caslon-pro',
             a: {
               color: theme('colors.teal.700'),
               '&:hover': {
