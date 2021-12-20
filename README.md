@@ -1,4 +1,4 @@
-![tailwind-nextjs-banner](/public/static/images/twitter-card.png)
+![tailwind-nextjs-banner](/public/assets/images/twitter-card.png)
 
 # Tailwind Nextjs Starter Blog
 
@@ -106,7 +106,7 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 `data/blog` - replace with your own blog posts.
 
-`public/static` - store assets such as images and favicons.
+`public/assets` - store assets such as images and favicons.
 
 `tailwind.config.js` and `css/tailwind.css` - contain the tailwind stylesheet which can be modified to change the overall look and feel of the site.
 
@@ -150,7 +150,7 @@ lastmod: '2021-01-18'
 tags: ['next-js', 'tailwind', 'guide']
 draft: false
 summary: 'Looking for a performant, out of the box template, with all the best in web technology to support your blogging needs? Checkout the Tailwind Nextjs Starter Blog template.'
-images: ['/static/images/canada/mountains.jpg', '/static/images/canada/toronto.jpg']
+images: ['/assets/images/canada/mountains.jpg', '/assets/images/canada/toronto.jpg']
 authors: ['default', 'sparrowhawk']
 layout: PostLayout
 ---

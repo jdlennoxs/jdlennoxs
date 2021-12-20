@@ -1,6 +1,6 @@
 ---
 name: Jack Scott
-avatar: /static/images/avatar.png
+avatar: /assets/images/avatar.png
 occupation: Software Lead
 company: Moneyhub
 linkedin: https://www.linkedin.com/in/jack-scott-2920ab47
