@@ -6,6 +6,6 @@ nextApp:
     domain: ['jdlennoxs.com']
     domainType: 'both'
     domainRedirects:
-      jdlennoxs.com: http://www.jdlennoxs.com
+      jdlennoxs.com: https://www.jdlennoxs.com
     bucketName: jdlennoxs-site
     bucketRegion: eu-west-2
