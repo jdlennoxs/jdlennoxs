@@ -1,4 +1,4 @@
-// import Image from 'next/image'
+import Image from 'next/image'
 import Link from '@/components/Link'
 import formatDate from '@/lib/utils/formatDate'
 
@@ -16,7 +16,7 @@ interface CardProps {
 const CoverImage = ({ href, title, imgSrc }) => (
   <div className="w-full" style={{ fontSize: '0' }}>
     {href ? (
-      <img
+      <Image
         alt={title}
         src={imgSrc}
         // layout="responsive"
@@ -25,7 +25,7 @@ const CoverImage = ({ href, title, imgSrc }) => (
         className="object-cover object-center"
       />
     ) : (
-      <img
+      <Image
         alt={title}
         src={imgSrc}
         width={360}
