@@ -21,7 +21,13 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       {isDevelopment && <ClientReload />}
       {/* <Analytics /> */}
-      <PlausibleProvider domain="jdlennoxs.com">
+      <PlausibleProvider
+        domain="jdlennoxs.com"
+        selfHosted={true}
+        scriptProps={{
+          src: 'https://analytics.jdlennoxs.com/js/plausible.js',
+        }}
+      >
         <LayoutWrapper>
           <Component {...pageProps} />
         </LayoutWrapper>
