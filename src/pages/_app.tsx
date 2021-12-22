@@ -9,6 +9,8 @@ import Analytics from '@/components/analytics'
 import LayoutWrapper from '@/components/LayoutWrapper'
 import { ClientReload } from '@/components/ClientReload'
 
+import PlausibleProvider from 'next-plausible'
+
 const isDevelopment = process.env.NODE_ENV === 'development'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -18,10 +20,12 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       {isDevelopment && <ClientReload />}
-      <Analytics />
-      <LayoutWrapper>
-        <Component {...pageProps} />
-      </LayoutWrapper>
+      {/* <Analytics /> */}
+      <PlausibleProvider domain="jdlennoxs.com">
+        <LayoutWrapper>
+          <Component {...pageProps} />
+        </LayoutWrapper>
+      </PlausibleProvider>
     </ThemeProvider>
   )
 }
