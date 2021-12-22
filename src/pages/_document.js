@@ -4,6 +4,12 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <script
+            defer
+            data-domain="jdlennoxs.com"
+            src="https://jdlennoxs.com/js/plausible.js"
+          ></script>
+
           <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/apple-touch-icon.png" />
           <link
             rel="icon"
