@@ -9,10 +9,13 @@ import NewsletterForm from '@/components/NewsletterForm'
 import { GetStaticProps } from 'next'
 import SectionContainer from '@/components/SectionContainer'
 import ArticleCard from '@/components/ArticleCard'
+import Card from '@/components/final/ArticleCard'
+import ProjectCard from '@/components/final/ProjectCard'
 import PageTitle from '@/components/PageTitle'
+
 import projectsData from '@/data/projectsData'
 
-const MAX_DISPLAY = 4
+const MAX_DISPLAY = 6
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllFilesFrontMatter('posts')
@@ -24,7 +27,7 @@ const Home = ({ posts }: any) => {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div>
+      <div full-width>
         {/* <div className="background-header full-width">
         <div className="space-y-2 md:space-y-5 p-8 min-h-3/4 full-width flex flex-col justify-center">
           <div className="content-width">
@@ -41,24 +44,38 @@ const Home = ({ posts }: any) => {
           </div>
         </div> 
         </div> */}
+        <section className="bg-gradient-to-b from-light  h-96">
+          <PageTitle>Jack Scott creates stuff.</PageTitle>
+        </section>
 
-        <section className="py-6 content-width">
-          <div className="flex flex-col space-y-10">
+        <section className="py-6 ">
+          <div className="flex flex-col space-y-10 py-10 content-width">
             <PageTitle>latest</PageTitle>
-            <ul className="grid gap-x-2 gap-y-4 xl:grid-cols-2">
+            <ul className="grid gap-x-2 gap-y-4 lg:grid-cols-3">
               {!posts.length && 'No posts found.'}
               {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
-                const { slug, title, readingTime, lastmod, date, imgSrc, type } = frontMatter
+                const {
+                  slug,
+                  title,
+                  summary,
+                  readingTime,
+                  lastmod,
+                  date,
+                  coverImage,
+                  type,
+                  tags,
+                } = frontMatter
                 return (
                   <li key={slug}>
-                    <ArticleCard
+                    <Card
                       title={title}
                       readingTime={readingTime}
                       lastmod={lastmod}
                       date={date}
                       href={`/posts/${slug}`}
-                      imgSrc={imgSrc}
+                      imgSrc={coverImage}
                       type={type}
+                      summary={summary}
                     />
                   </li>
                 )
@@ -77,20 +94,15 @@ const Home = ({ posts }: any) => {
             )}
           </div>
         </section>
-        <section className="py-6 bg-gray-50">
-          <div className="flex flex-col space-y-10 content-width">
+        <section className="py-6 bg-light ">
+          <div className="flex flex-col space-y-10 py-10 content-width">
             <PageTitle>projects</PageTitle>
-            <ul className="grid gap-x-4 gap-y-4 md:grid-cols-2 max-w-screen-md">
+            <ul className="grid gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3">
               {projectsData.map((project) => {
-                const { title, imgSrc, href, description } = project
+                const { title, imgSrc, href, summary } = project
                 return (
                   <li key={title}>
-                    <ArticleCard
-                      title={title}
-                      description={description}
-                      imgSrc={imgSrc}
-                      href={href}
-                    />
+                    <ProjectCard title={title} summary={summary} imgSrc={imgSrc} href={href} />
                   </li>
                 )
               })}

@@ -7,20 +7,47 @@ linkedin: https://www.linkedin.com/in/jack-scott-2920ab47
 github: https://github.com/jdlennoxs
 ---
 
-### Work
+## Hey 👋 I'm Jack
 
 Jack is a full-stack developer based in Bristol. He leads the core product development team at Moneyhub and is responsible for developing features in a React codebase from inception to release.
 
 Jack is interested in interactive art and photography.
 
-### Bio
+### My development journey
 
-_1991_ Born in UK.
+<Timeline >
+<ul>
+    <li><h3>2020</h3></li>
+</ul>
+  </Timeline>
 
-_2014_ Graduated with Master's in Aeropsace Engineering from Bristol University
+- **2020**
 
-_2014_ Started software journey at IPL, Bath
+  Team lead at [Moneyhub](www.moneyhub.com), Bristol - Leading Application and Product feature development:
 
-_2017_ Play Sports Network
+  - Working in React, React Native and node microservices
+  - Building a team to deliver great features efficiently ((roles available!))[https://moneyhub.livevacancies.co.uk/#/]
+  - Working with a great team to build a great environment for development
 
-_2020_ Joined Moneyhub
+- **2017**
+
+  Developer at [Play Sports Network](www.playsportsnetwork.com), Bath - As a member of the team through scale up I worked across multiple areas:
+
+  - Building custom social media data aggregation tools and dashboards
+  - Data analysis
+  - Web development of [Global Cycling Network](https://www.globalcyclingnetwork.com/) and sister sites
+  - Project management of Eurosport live stream app integrations
+
+- **2014**
+
+  Recieved Master's in Aeropsace Engineering from University of Bristol
+
+  Started software journey at IPL, Bath - Working with Java, C#, AngularJS for a range of clients from Met Office to UKRI
+
+- **2010**
+
+  Moved to Bristol, UK
+
+- **1991**
+
+  Born in UK

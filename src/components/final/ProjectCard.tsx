@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from '@/components/Link'
 import formatDate from '@/lib/utils/formatDate'
+import CardWrapper from '@/components/final/CardWrapper'
+import Tag from '@/components/Tag'
 
 interface CardProps {
   title: any
@@ -14,13 +16,13 @@ interface CardProps {
 }
 
 const CoverImage = ({ href, title, imgSrc }) => (
-  <div className="w-full" style={{ fontSize: '0' }}>
+  <div className="w-full border-b" style={{ fontSize: '0' }}>
     {href ? (
       <Image
         alt={title}
         src={imgSrc}
-        // layout="responsive"
-        width={360}
+        layout="responsive"
+        width={420}
         height={360}
         className="object-cover object-center"
       />
@@ -28,7 +30,7 @@ const CoverImage = ({ href, title, imgSrc }) => (
       <Image
         alt={title}
         src={imgSrc}
-        width={360}
+        width={420}
         height={360}
         className="object-cover object-center"
       />
@@ -36,30 +38,20 @@ const CoverImage = ({ href, title, imgSrc }) => (
   </div>
 )
 
-const ArticleCard = ({
-  title,
-  readingTime,
-  lastmod,
-  date,
-  href,
-  imgSrc,
-  type,
-  description,
-}: CardProps) => {
-  const lastModified = lastmod || date
+const ProjectCard = ({ title, href, imgSrc, type, summary }: CardProps) => {
   return (
-    <div className="group max-w-xs transition duration-600 min-h-[80px]">
+    <div className=" min-h-[80px]">
       <Link href={href} aria-label={`Link to ${title}`}>
         {imgSrc ? <CoverImage title={title} imgSrc={imgSrc} href={href} /> : null}
         <div>
-          <blockquote className="p-2">
-            <h4 className="text-xl text-base font-semibold">{title}</h4>
-            {type === 'article' ? (
-              <div className="flex text-md font-semibold text-subtle">
-                <time>{formatDate(lastModified)}</time>
-                <span>{readingTime && readingTime.text}</span>
-              </div>
-            ) : null}
+          <blockquote className=" bg-white p-4 ">
+            <span>
+              <h4 className="inline text-lg text-dark">{title}</h4>
+              <p className="text-subtle"> {summary}</p>
+            </span>
+            {/* <div className='flex flex-col mt-8'>
+                            <Tag text="tags" />
+                        </div> */}
           </blockquote>
         </div>
       </Link>
@@ -67,4 +59,4 @@ const ArticleCard = ({
   )
 }
 
-export default ArticleCard
+export default CardWrapper(ProjectCard)

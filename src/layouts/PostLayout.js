@@ -8,6 +8,8 @@ import Tag from '@/components/Tag'
 import TOCInline from '@/components/TOCInline'
 import siteMetadata from '@/data/siteMetadata'
 import Draft from '@/components/Draft'
+import TitleCard from '@/components/TitleCard'
+import Image from 'next/image'
 
 const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/posts/${fileName}`
 const discussUrl = (slug) =>
@@ -18,7 +20,7 @@ const discussUrl = (slug) =>
 const postDateTemplate = { year: 'numeric', month: 'long', day: 'numeric' }
 
 export default function PostLayout({ toc, frontMatter, authorDetails, next, prev, children }) {
-  const { slug, fileName, date, title, tags, draft } = frontMatter
+  const { slug, fileName, date, title, tags, draft, coverImage } = frontMatter
 
   return (
     <SectionContainer>
@@ -29,7 +31,31 @@ export default function PostLayout({ toc, frontMatter, authorDetails, next, prev
       />
       <ScrollTopAndComment />
       <article>
+        {/* Title Section */}
+        <div className="full-width">
+          <div className="header-width border-b">
+            {/* Cover Image */}
+            {coverImage ? (
+              <div className="m-auto relative">
+                <Image
+                  alt={title}
+                  src={coverImage}
+                  layout="responsive"
+                  width={920}
+                  height={500}
+                  className="object-cover object-center"
+                />
+              </div>
+            ) : null}
+            {/* Title Card */}
+
+            <TitleCard tags={tags} date={date}>
+              {title}
+            </TitleCard>
+          </div>
+        </div>
         <div>
+          {/* <div>
           <div className="bg-rose-50 full-width">
             <header className="pt-6 xl:pb-6 content-width">
               <div className="py-10">
@@ -62,7 +88,7 @@ export default function PostLayout({ toc, frontMatter, authorDetails, next, prev
                 )}
               </div>
             </header>
-          </div>
+          </div> */}
           {/* <div className="p-4 xl:p-8 bg-gray-50 full-width">
             <div className="content-width">
               <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
@@ -76,7 +102,7 @@ export default function PostLayout({ toc, frontMatter, authorDetails, next, prev
             style={{ gridTemplateRows: '1fr' }}
           > */}
           <div className="divide-y divide-gray-200 dark:divide-gray-700">
-            <div className="pb-8 prose max-w-none">
+            <div className="pb-8 prose max-w-none content-width">
               {children}
               {draft ? <Draft /> : null}
             </div>

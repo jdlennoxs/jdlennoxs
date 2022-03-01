@@ -5,6 +5,7 @@ import Image from './Image'
 import CustomLink from './Link'
 import TOCInline from './TOCInline'
 import Pre from './Pre'
+import Timeline from './Timeline'
 import { BlogNewsletterForm } from './NewsletterForm'
 
 const FullWidth = () => <div className="h-96 bg-gray-800 full-width full-bleed" />
@@ -13,6 +14,7 @@ export const MDXComponents = {
   FullWidth,
   Image,
   TOCInline,
+  Timeline,
   a: CustomLink,
   pre: Pre,
   BlogNewsletterForm: BlogNewsletterForm,
