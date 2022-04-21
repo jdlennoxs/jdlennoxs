@@ -11,12 +11,13 @@ export default function PageTitle({ date, tags, children }) {
         className="text-xl md:text-2xl
         font-bold
       tracking-wide leading-7 md:leading-7
-      text-gray-800 dark:text-gray-100"
+      text-gray-800 dark:text-gray-100
+      font-serif"
       >
         {children}
       </h1>
       <h2
-        className="text-xl md:text-2xl
+        className="
       tracking-wide leading-7  md:leading-7
       text-gray-700 dark:text-gray-100"
       >

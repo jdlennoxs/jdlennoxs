@@ -11,6 +11,9 @@ import Draft from '@/components/Draft'
 import TitleCard from '@/components/TitleCard'
 import Image from 'next/image'
 
+import { ArticleHero } from '../stories/article-hero/ArticleHero'
+import { ArticleMeta } from '../stories/article-meta/ArticleMeta'
+
 const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/posts/${fileName}`
 const discussUrl = (slug) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
@@ -20,7 +23,7 @@ const discussUrl = (slug) =>
 const postDateTemplate = { year: 'numeric', month: 'long', day: 'numeric' }
 
 export default function PostLayout({ toc, frontMatter, authorDetails, next, prev, children }) {
-  const { slug, fileName, date, title, tags, draft, coverImage } = frontMatter
+  const { slug, fileName, summary, date, title, tags, draft, coverImage, readingTime } = frontMatter
 
   return (
     <SectionContainer>
@@ -31,10 +34,8 @@ export default function PostLayout({ toc, frontMatter, authorDetails, next, prev
       />
       <ScrollTopAndComment />
       <article>
-        {/* Title Section */}
-        <div className="full-width">
+        {/* <div className="full-width">
           <div className="header-width border-b">
-            {/* Cover Image */}
             {coverImage ? (
               <div className="m-auto relative">
                 <Image
@@ -47,62 +48,18 @@ export default function PostLayout({ toc, frontMatter, authorDetails, next, prev
                 />
               </div>
             ) : null}
-            {/* Title Card */}
 
             <TitleCard tags={tags} date={date}>
               {title}
             </TitleCard>
           </div>
-        </div>
-        <div>
-          {/* <div>
-          <div className="bg-rose-50 full-width">
-            <header className="pt-6 xl:pb-6 content-width">
-              <div className="py-10">
-                <div>
-                  <PageTitle>{title}</PageTitle>
-                </div>
-              </div>
-              <div className="text-sm font-medium leading-5 flex justify-between">
-                <div className="py-4 xl:py-8 ">
-                  <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                    Last updated
-                  </h2>
-                  <dd className="text-base font-medium leading-6 text-gray-700 dark:text-gray-400">
-                    <time dateTime={date} className="text-sm">
-                      {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
-                    </time>
-                  </dd>
-                </div>
-                {tags && (
-                  <div className="py-4 xl:py-8 ">
-                    <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                      Tags
-                    </h2>
-                    <div className="flex flex-wrap">
-                      {tags.map((tag) => (
-                        <Tag key={tag} text={tag} />
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </header>
-          </div> */}
-          {/* <div className="p-4 xl:p-8 bg-gray-50 full-width">
-            <div className="content-width">
-              <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                Table of contents
-              </h2>
-              <TOCInline toc={toc} />
-            </div>
-          </div> */}
-          {/* <div
-            className="pb-8 divide-y divide-gray-200 xl:divide-y-0 dark:divide-gray-700 xl:grid xl:grid-cols-1 xl:gap-x-6"
-            style={{ gridTemplateRows: '1fr' }}
-          > */}
+        </div> */}
+        <ArticleHero title={title} imgSrc={coverImage} summary={summary} />
+
+        <div className="article-width divide-y divide-gray-200 dark:divide-gray-700">
           <div className="divide-y divide-gray-200 dark:divide-gray-700">
-            <div className="pb-8 prose max-w-none content-width">
+            <div className="pb-8 prose max-w-none space-y-4">
+              <ArticleMeta lastmod={date} readingTime={readingTime} authorDetails={authorDetails} />
               {children}
               {draft ? <Draft /> : null}
             </div>
@@ -116,7 +73,6 @@ export default function PostLayout({ toc, frontMatter, authorDetails, next, prev
             <Comments frontMatter={frontMatter} />
           </div>
         </div>
-        {/* </div> */}
       </article>
     </SectionContainer>
   )

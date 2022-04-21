@@ -8,12 +8,14 @@ import formatDate from '@/lib/utils/formatDate'
 import NewsletterForm from '@/components/NewsletterForm'
 import { GetStaticProps } from 'next'
 import SectionContainer from '@/components/SectionContainer'
-import ArticleCard from '@/components/ArticleCard'
+import { ArticleCard } from 'src/stories/article-card/ArticleCard'
 import Card from '@/components/final/ArticleCard'
 import ProjectCard from '@/components/final/ProjectCard'
 import PageTitle from '@/components/PageTitle'
 
 import projectsData from '@/data/projectsData'
+import LandingPage from '@/components/LandingPage'
+import { BlogHero } from 'src/stories/blog-hero/BlogHero'
 
 const MAX_DISPLAY = 6
 
@@ -44,6 +46,9 @@ const Home = ({ posts }: any) => {
           </div>
         </div> 
         </div> */}
+        <section>
+          <LandingPage />
+        </section>
         <section className="bg-gradient-to-b from-light  h-96">
           <PageTitle>Jack Scott creates stuff.</PageTitle>
         </section>
@@ -51,9 +56,19 @@ const Home = ({ posts }: any) => {
         <section className="py-6 ">
           <div className="flex flex-col space-y-10 py-10 content-width">
             <PageTitle>latest</PageTitle>
-            <ul className="grid gap-x-2 gap-y-4 lg:grid-cols-3">
+            <div className="max-height-container">
+              <span>Hello</span>
+            </div>
+            <BlogHero
+              title={posts[0].title}
+              href={`/posts/${posts[0].slug}`}
+              summary={posts[0].summary}
+              imgSrc={posts[0].coverImage}
+            />
+            <ul className="grid gap-x-6 gap-y-6 md:grid-cols-2 md:p-0 p-6">
               {!posts.length && 'No posts found.'}
-              {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
+
+              {posts.slice(1, MAX_DISPLAY).map((frontMatter) => {
                 const {
                   slug,
                   title,
@@ -67,7 +82,7 @@ const Home = ({ posts }: any) => {
                 } = frontMatter
                 return (
                   <li key={slug}>
-                    <Card
+                    <ArticleCard
                       title={title}
                       readingTime={readingTime}
                       lastmod={lastmod}

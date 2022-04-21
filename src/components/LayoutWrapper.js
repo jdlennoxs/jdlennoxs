@@ -11,8 +11,8 @@ const LayoutWrapper = ({ children }) => {
   return (
     // <SectionContainer>
     <div className="flex flex-col justify-between h-screen">
-      <div className="w-screen ">
-        <header className="flex items-center justify-between py-4 header-width">
+      <div className="w-screen border-b">
+        <header className="flex items-center justify-between py-4 header-width ">
           <div className="inline-flex items-baseline justify-between">
             <Link href="/" aria-label="Tailwind CSS Blog">
               <div>

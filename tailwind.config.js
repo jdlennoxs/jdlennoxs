@@ -3,7 +3,7 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   mode: 'jit',
-  purge: [
+  content: [
     './src/pages/**/*.{js,tsx}',
     './src/components/**/*.js',
     './src/layouts/**/*.js',
@@ -19,6 +19,9 @@ module.exports = {
       full: '100vh',
     },
     extend: {
+      maxHeight: {
+        '50vh': '50vh',
+      },
       spacing: {
         '9/16': '56.25%',
       },
@@ -30,17 +33,16 @@ module.exports = {
       },
       fontFamily: {
         sans: ['freight-sans-pro', ...defaultTheme.fontFamily.sans],
-        serif: ['inter', 'adobe-caslon-pro', ...defaultTheme.fontFamily.serif],
+        serif: ['adobe-caslon-pro', ...defaultTheme.fontFamily.serif],
       },
       colors: {
         light: '#F6FCFB',
-        primary: '#07c39f',
+        primary: '#07c38f',
         hot: '#e83a57',
         dark: '#263154;',
         base: '#263154;',
         subtle: '#666E86',
         rose: colors.rose,
-        slate: colors.blueGray,
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -176,9 +178,6 @@ module.exports = {
         },
       }),
     },
-  },
-  variants: {
-    typography: ['dark'],
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }
