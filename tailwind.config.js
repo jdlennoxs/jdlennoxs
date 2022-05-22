@@ -5,9 +5,9 @@ module.exports = {
   mode: 'jit',
   content: [
     './src/pages/**/*.{js,tsx}',
-    './src/components/**/*.js',
-    './src/layouts/**/*.js',
-    './src/lib/**/*.js',
+    './src/components/**/*.{js,tsx}',
+    './src/layouts/**/*.{js,tsx}',
+    './src/lib/**/*.{js,tsx}',
   ],
   darkMode: 'class',
   theme: {
@@ -37,10 +37,11 @@ module.exports = {
       },
       colors: {
         light: '#F6FCFB',
-        primary: '#07c38f',
+        accent: '#07c38f',
+        primary: '#048052',
         hot: '#e83a57',
         dark: '#263154;',
-        base: '#263154;',
+        base: '#2b2d33;',
         subtle: '#666E86',
         rose: colors.rose,
       },

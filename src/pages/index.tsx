@@ -8,14 +8,12 @@ import formatDate from '@/lib/utils/formatDate'
 import NewsletterForm from '@/components/NewsletterForm'
 import { GetStaticProps } from 'next'
 import SectionContainer from '@/components/SectionContainer'
-import { ArticleCard } from 'src/stories/article-card/ArticleCard'
-import Card from '@/components/final/ArticleCard'
-import ProjectCard from '@/components/final/ProjectCard'
+import { BlogCard } from '@/components/final/blog-card/BlogCard'
 import PageTitle from '@/components/PageTitle'
 
 import projectsData from '@/data/projectsData'
 import LandingPage from '@/components/LandingPage'
-import { BlogHero } from 'src/stories/blog-hero/BlogHero'
+import { BlogHero } from '@/components/final/blog-hero/BlogHero'
 
 const MAX_DISPLAY = 6
 
@@ -29,45 +27,26 @@ const Home = ({ posts }: any) => {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div full-width>
-        {/* <div className="background-header full-width">
-        <div className="space-y-2 md:space-y-5 p-8 min-h-3/4 full-width flex flex-col justify-center">
-          <div className="content-width">
-            <h1 className="page-title ">
-              -skew-x-3
-              Write. Code. Create.
-            </h1>
-            <div className="w-11 overflow-hidden inline-block">
-              <div className=" h-16 bg-hot -rotate-45 transform origin-top-left"></div>
-            </div>
-            <p className="text-lg leading-7 text-gray-300 dark:text-gray-400">
-              {siteMetadata.description}
-            </p>
-          </div>
-        </div> 
-        </div> */}
-        <section>
-          <LandingPage />
-        </section>
-        <section className="bg-gradient-to-b from-light  h-96">
-          <PageTitle>Jack Scott creates stuff.</PageTitle>
-        </section>
+      <section>
+        <LandingPage />
+      </section>
 
-        <section className="py-6 ">
-          <div className="flex flex-col space-y-10 py-10 content-width">
-            <PageTitle>latest</PageTitle>
-            <div className="max-height-container">
-              <span>Hello</span>
+      <section className="py-6 ">
+        <div className="flex flex-col space-y-10 py-10 content-width">
+          <PageTitle>latest</PageTitle>
+          <ul className="grid gap-y-2 gap-x-4 lg:grid-cols-5 ">
+            {!posts.length && 'No posts found.'}
+            <div className="lg:col-span-2">
+              <BlogHero
+                title={posts[0].title}
+                href={`/posts/${posts[0].slug}`}
+                readingTime={posts[0].readingTime}
+                summary={posts[0].summary}
+                imgSrc={posts[0].coverImage}
+                tags={posts[0].tags}
+              />
             </div>
-            <BlogHero
-              title={posts[0].title}
-              href={`/posts/${posts[0].slug}`}
-              summary={posts[0].summary}
-              imgSrc={posts[0].coverImage}
-            />
-            <ul className="grid gap-x-6 gap-y-6 md:grid-cols-2 md:p-0 p-6">
-              {!posts.length && 'No posts found.'}
-
+            <div className="grid lg:grid-cols-2 gap-y-2 gap-x-4 lg:col-span-3">
               {posts.slice(1, MAX_DISPLAY).map((frontMatter) => {
                 const {
                   slug,
@@ -82,7 +61,7 @@ const Home = ({ posts }: any) => {
                 } = frontMatter
                 return (
                   <li key={slug}>
-                    <ArticleCard
+                    <BlogCard
                       title={title}
                       readingTime={readingTime}
                       lastmod={lastmod}
@@ -91,51 +70,52 @@ const Home = ({ posts }: any) => {
                       imgSrc={coverImage}
                       type={type}
                       summary={summary}
+                      tags={tags}
                     />
                   </li>
                 )
               })}
-            </ul>
-            {posts.length > MAX_DISPLAY && (
-              <div className="flex justify-end text-base font-medium leading-6">
-                <Link
-                  href="/posts"
-                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                  aria-label="all posts"
-                >
-                  All Posts &rarr;
-                </Link>
-              </div>
-            )}
-          </div>
-        </section>
-        <section className="py-6 bg-light ">
-          <div className="flex flex-col space-y-10 py-10 content-width">
-            <PageTitle>projects</PageTitle>
-            <ul className="grid gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3">
-              {projectsData.map((project) => {
-                const { title, imgSrc, href, summary } = project
-                return (
-                  <li key={title}>
-                    <ProjectCard title={title} summary={summary} imgSrc={imgSrc} href={href} />
-                  </li>
-                )
-              })}
-            </ul>
-            {posts.length > MAX_DISPLAY && (
-              <div className="flex justify-end text-base font-medium leading-6">
-                <Link
-                  href="/posts"
-                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                  aria-label="all posts"
-                >
-                  Projects &rarr;
-                </Link>
-              </div>
-            )}
-          </div>
-        </section>
-      </div>
+            </div>
+          </ul>
+          {posts.length > MAX_DISPLAY && (
+            <div className="flex justify-end text-base font-medium leading-6">
+              <Link
+                href="/posts"
+                className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                aria-label="all posts"
+              >
+                All Posts &rarr;
+              </Link>
+            </div>
+          )}
+        </div>
+      </section>
+      <section className="py-6 bg-primary ">
+        <div className="flex flex-col space-y-10 py-10 content-width">
+          <PageTitle>projects</PageTitle>
+          <ul className="grid gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3">
+            {projectsData.map((project) => {
+              const { title, imgSrc, href, summary } = project
+              return (
+                <li key={title}>
+                  <BlogCard title={title} summary={summary} imgSrc={imgSrc} href={href} />
+                </li>
+              )
+            })}
+          </ul>
+          {posts.length > MAX_DISPLAY && (
+            <div className="flex justify-end text-base font-medium leading-6">
+              <Link
+                href="/posts"
+                className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                aria-label="all posts"
+              >
+                Projects &rarr;
+              </Link>
+            </div>
+          )}
+        </div>
+      </section>
 
       {siteMetadata.newsletter.provider !== '' && (
         <div className="flex items-center justify-center pt-4">

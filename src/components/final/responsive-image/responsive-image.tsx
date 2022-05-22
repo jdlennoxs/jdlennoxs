@@ -7,12 +7,13 @@ interface ResponsiveImageProps {
   aspectRatio?: number
 }
 
-export const ResponsiveImage = ({ aspectRatio = 9 / 16, ...props }: ResponsiveImageProps) => {
+export const ResponsiveImage = ({ aspectRatio = 9 / 16, alt, ...props }: ResponsiveImageProps) => {
   const { observe, width } = useDimensions<HTMLDivElement | null>()
   return (
     <div className="max-height-container" ref={observe}>
       <Image
         {...props}
+        alt={alt}
         layout="responsive"
         width={width}
         height={width * aspectRatio}

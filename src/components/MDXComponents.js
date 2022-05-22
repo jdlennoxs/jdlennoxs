@@ -7,7 +7,6 @@ import TOCInline from './TOCInline'
 import Pre from './Pre'
 import Timeline from './Timeline'
 import { BlogNewsletterForm } from './NewsletterForm'
-import Card from './CardWrapper'
 
 const FullWidth = () => <div className="h-96 bg-gray-800 full-width full-bleed" />
 
@@ -19,12 +18,11 @@ export const MDXComponents = {
   a: CustomLink,
   pre: Pre,
   BlogNewsletterForm: BlogNewsletterForm,
-  Card: Card,
   wrapper: ({ children, components, layout, ...rest }) => {
     const Layout = require(`../layouts/${layout}`).default
     return (
       <Layout {...rest}>
-        <div>{children}</div>
+        <div className="article-grid">{children}</div>
       </Layout>
     )
   },

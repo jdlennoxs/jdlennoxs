@@ -15,13 +15,11 @@ Jack is interested in interactive art and photography.
 
 ### My development journey
 
-<Card>
 <Timeline >
 <ul>
     <li><h3>2020</h3></li>
 </ul>
-  </Timeline>
-  </Card>
+</Timeline>
 
 - **2020**
 

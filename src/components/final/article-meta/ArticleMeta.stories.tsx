@@ -1,30 +1,30 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Card } from './Card'
-
-const Placeholder = () => <div className="p-4 bg-gray-50">Placeholder</div>
+import { ArticleMeta } from './ArticleMeta'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Components/Card',
-  component: Card,
+  title: 'Components/Article/Meta',
+  component: ArticleMeta,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   // argTypes: {
   //   backgroundColor: { control: 'color' },
   // },
-} as ComponentMeta<typeof Card>
+} as ComponentMeta<typeof ArticleMeta>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Card> = (args) => (
-  <Card {...args}>
-    <Placeholder />
-  </Card>
-)
+const Template: ComponentStory<typeof ArticleMeta> = (args) => <ArticleMeta {...args} />
 
 export const Primary = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  border: true,
-  rounded: true,
+  lastmod: new Date(),
+  readingTime: { text: '5 minute read' },
+  authorDetails: [
+    {
+      name: 'Jack Scott',
+      avatar: '/assets/images/avatar.png',
+    },
+  ],
 }

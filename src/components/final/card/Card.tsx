@@ -9,6 +9,7 @@ interface CardProps {
    * What background color to use
    */
   border?: boolean
+  dark?: boolean
   /**
    * The child component to be rendered
    */
@@ -18,8 +19,21 @@ interface CardProps {
 /**
  * Primary UI component for user interaction
  */
-export const Card = ({ rounded = false, border = false, children }: CardProps) => {
+export const Card = ({
+  rounded = false,
+  border = false,
+  dark = false,
+  className,
+  children,
+}: CardProps) => {
   const borderStyles = border && 'border-2 border-gray-200 border-opacity-60'
   const roundedStyles = rounded && 'rounded-md'
-  return <div className={`overflow-hidden md:m-4 ${borderStyles} ${roundedStyles}`}>{children}</div>
+  const darkStyles = dark ? 'bg-base text-white' : 'bg-white'
+  return (
+    <div
+      className={`overflow-hidden md:m-4 ${className} ${borderStyles} ${roundedStyles} ${darkStyles}`}
+    >
+      {children}
+    </div>
+  )
 }

@@ -14,7 +14,7 @@
  *  toc: TocHeading[],
  *  indentDepth?: number,
  *  fromHeading?: number,
- *  toHeading?: number,
+ *  toHeading?: number,O
  *  asDisclosure?: boolean,
  *  exclude?: string|string[]
  * }} props
