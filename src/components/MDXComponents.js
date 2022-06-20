@@ -5,7 +5,7 @@ import Image from './Image'
 import CustomLink from './Link'
 import TOCInline from './TOCInline'
 import Pre from './Pre'
-import Timeline from './Timeline'
+import { Timeline } from '@/components/timeline'
 import { BlogNewsletterForm } from './NewsletterForm'
 
 const FullWidth = () => <div className="h-96 bg-gray-800 full-width full-bleed" />

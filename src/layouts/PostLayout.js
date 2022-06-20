@@ -1,18 +1,11 @@
 import Comments from '@/components/comments'
-import Link from '@/components/Link'
-import PageTitle from '@/components/PageTitle'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import SectionContainer from '@/components/SectionContainer'
-import { BlogSEO } from '@/components/SEO'
-import Tag from '@/components/Tag'
-import TOCInline from '@/components/TOCInline'
-import siteMetadata from '@/data/siteMetadata'
 import Draft from '@/components/Draft'
-import TitleCard from '@/components/TitleCard'
-import Image from 'next/image'
-
-import { ArticleHero } from '@/components/final/article-hero/ArticleHero'
-import { ArticleMeta } from '@/components/final/article-meta/ArticleMeta'
+import { ArticleHero } from '@/components/article-hero'
+import { ArticleMeta } from '@/components/article-meta'
+import Link from '@/components/Link'
+import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import { BlogSEO } from '@/components/SEO'
+import siteMetadata from '@/data/siteMetadata'
 
 const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/posts/${fileName}`
 const discussUrl = (slug) =>
@@ -20,13 +13,11 @@ const discussUrl = (slug) =>
     `${siteMetadata.siteUrl}/posts/${slug}`
   )}`
 
-const postDateTemplate = { year: 'numeric', month: 'long', day: 'numeric' }
-
 export default function PostLayout({ toc, frontMatter, authorDetails, next, prev, children }) {
   const { slug, fileName, summary, date, title, tags, draft, coverImage, readingTime } = frontMatter
 
   return (
-    <SectionContainer>
+    <>
       <BlogSEO
         url={`${siteMetadata.siteUrl}/posts/${slug}`}
         authorDetails={authorDetails}
@@ -34,12 +25,12 @@ export default function PostLayout({ toc, frontMatter, authorDetails, next, prev
       />
       <ScrollTopAndComment />
       <article>
-        <ArticleHero title={title} imgSrc={coverImage} summary={summary} />
+        <ArticleHero title={title} imgSrc={coverImage} tags={tags} lastmod={date} />
 
         <div className="article-container divide-y divide-gray-200 dark:divide-gray-700">
           <div className="divide-y divide-gray-200 dark:divide-gray-700">
             <div className="pb-8 prose max-w-none space-y-4">
-              <ArticleMeta lastmod={date} readingTime={readingTime} authorDetails={authorDetails} />
+              <ArticleMeta summary={summary} readingTime={readingTime} />
               {children}
               {draft ? <Draft /> : null}
             </div>
@@ -54,6 +45,6 @@ export default function PostLayout({ toc, frontMatter, authorDetails, next, prev
           </div>
         </div>
       </article>
-    </SectionContainer>
+    </>
   )
 }

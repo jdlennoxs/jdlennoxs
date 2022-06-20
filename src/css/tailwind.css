@@ -42,7 +42,7 @@ input:-webkit-autofill:focus {
   }
 
   .article-container {
-    @apply px-1 mx-auto md:px-4 max-w-3xl;
+    @apply px-1 mx-auto md:px-4 max-w-4xl;
   }
 
   .article-grid {
@@ -81,6 +81,6 @@ input:-webkit-autofill:focus {
   }
 
   .max-height-container > span {
-    @apply max-h-[50vh];
+    @apply max-h-[70vh];
   }
 }
