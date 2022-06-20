@@ -1,7 +1,6 @@
 import siteMetadata from '@/data/siteMetadata'
 import projectsData from '@/data/projectsData'
-import Card from '@/components/Card'
-import ArticleCard from '@/components/ArticleCard'
+import { BlogCard } from '@/components/blog-card'
 import { PageSEO } from '@/components/SEO'
 import PageTitle from '@/components/PageTitle'
 
@@ -18,7 +17,7 @@ export default function Projects() {
         </div>
         <div className="grid gap-x-4 gap-y-4 md:grid-cols-3">
           {projectsData.map((d) => (
-            <ArticleCard
+            <BlogCard
               key={d.title}
               title={d.title}
               description={d.description}

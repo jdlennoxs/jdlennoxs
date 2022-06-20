@@ -7,20 +7,63 @@ linkedin: https://www.linkedin.com/in/jack-scott-2920ab47
 github: https://github.com/jdlennoxs
 ---
 
-### Work
+## Hey 👋 I'm Jack
 
-Jack is a full-stack developer based in Bristol. He leads the core product development team at Moneyhub and is responsible for developing features in a React codebase from inception to release.
+I'm a software engineering team lead based in Bristol, UK.
 
-Jack is interested in interactive art and photography.
+### My development journey
 
-### Bio
+<Timeline history={[
+{
+date: '2020 - present',
+role: 'Software Team Lead - [Moneyhub](www.moneyhub.com)',
+description: 'Leading application and product feature development.'
+},
+{
+date: '2017 - 2020',
+role: 'Tech Lead - [Play Sports Network](www.playsportsnetwork.com)',
+description: 'Worked across the development and product teams on a range of projects.'
+},
+{
+date: '2014 - 2017',
+role: 'Software Engineer - IPL',
+description: 'Began my development journey working in Java and AngularJs for a range of clients.'
+},
+{
+date: '2010 - 2014',
+role: 'University of Bristol',
+description: 'Recieved a masters degree in aerospace engineering.'
+}
+]
+}/>
 
-_1991_ Born in UK.
+- **2020**
 
-_2014_ Graduated with Master's in Aeropsace Engineering from Bristol University
+  Team lead at [Moneyhub](www.moneyhub.com), Bristol - Leading Application and Product feature development:
 
-_2014_ Started software journey at IPL, Bath
+  - Working in React, React Native and node microservices
+  - Building a team to deliver great features efficiently ((roles available!))[https://moneyhub.livevacancies.co.uk/#/]
+  - Working with a great team to build a great environment for development
 
-_2017_ Play Sports Network
+- **2017**
 
-_2020_ Joined Moneyhub
+  Developer at [Play Sports Network](www.playsportsnetwork.com), Bath - As a member of the team through scale up I worked across multiple areas:
+
+  - Building custom social media data aggregation tools and dashboards
+  - Data analysis
+  - Web development of [Global Cycling Network](https://www.globalcyclingnetwork.com/) and sister sites
+  - Project management of Eurosport live stream app integrations
+
+- **2014**
+
+  Recieved Master's in Aeropsace Engineering from University of Bristol
+
+  Started software journey at IPL, Bath - Working with Java, C#, AngularJS for a range of clients from Met Office to UKRI
+
+- **2010**
+
+  Moved to Bristol, UK
+
+- **1991**
+
+  Born in UK

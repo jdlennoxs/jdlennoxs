@@ -5,7 +5,6 @@ import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 
-import Analytics from '@/components/analytics'
 import LayoutWrapper from '@/components/LayoutWrapper'
 import { ClientReload } from '@/components/ClientReload'
 
@@ -20,7 +19,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       {isDevelopment && <ClientReload />}
-      {/* <Analytics /> */}
       <PlausibleProvider
         domain="jdlennoxs.com"
         selfHosted={true}
