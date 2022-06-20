@@ -1,26 +1,20 @@
-import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
-import Logo from '@/data/logo.svg'
-import Link from './Link'
-import SectionContainer from './SectionContainer'
+import siteMetadata from '@/data/siteMetadata'
 import Footer from './Footer'
+import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 
 const LayoutWrapper = ({ children }) => {
   return (
-    // <SectionContainer>
     <div className="flex flex-col justify-between h-screen">
-      <div className="w-screen">
-        <header className="flex items-center justify-between py-4 content-width">
+      <div className="w-screen border-b bg-white">
+        <header className="flex items-center justify-between py-4 header-width">
           <div className="inline-flex items-baseline justify-between">
             <Link href="/" aria-label="Tailwind CSS Blog">
               <div>
-                {/* <div className="mr-3">
-                      <Logo />
-                    </div> */}
                 {typeof siteMetadata.headerTitle === 'string' ? (
-                  <div className="text-gray-700 dark:text-gray-100 h-6 leading-none font-semibold pr-4 tracking-wider">
+                  <div className="text-gray-800 dark:text-gray-100 h-6 font-semibold tracking-wide">
                     {siteMetadata.headerTitle}
                   </div>
                 ) : (
@@ -28,6 +22,8 @@ const LayoutWrapper = ({ children }) => {
                 )}
               </div>
             </Link>
+          </div>
+          <div className="flex items-center text-base leading-5">
             <div className="invisible sm:visible">
               {headerNavLinks.map((link) => (
                 <Link
@@ -39,18 +35,15 @@ const LayoutWrapper = ({ children }) => {
                 </Link>
               ))}
             </div>
-          </div>
-          <div className="flex items-center text-base leading-5">
             <ThemeSwitch />
             <MobileNav />
           </div>
         </header>
       </div>
 
-      <main className="mb-auto">{children}</main>
+      <main>{children}</main>
       <Footer />
     </div>
-    // </SectionContainer>
   )
 }
 

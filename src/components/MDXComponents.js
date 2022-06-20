@@ -5,6 +5,7 @@ import Image from './Image'
 import CustomLink from './Link'
 import TOCInline from './TOCInline'
 import Pre from './Pre'
+import { Timeline } from '@/components/timeline'
 import { BlogNewsletterForm } from './NewsletterForm'
 
 const FullWidth = () => <div className="h-96 bg-gray-800 full-width full-bleed" />
@@ -13,6 +14,7 @@ export const MDXComponents = {
   FullWidth,
   Image,
   TOCInline,
+  Timeline,
   a: CustomLink,
   pre: Pre,
   BlogNewsletterForm: BlogNewsletterForm,
@@ -20,7 +22,7 @@ export const MDXComponents = {
     const Layout = require(`../layouts/${layout}`).default
     return (
       <Layout {...rest}>
-        <div className="post-container">{children}</div>
+        <div className="article-grid">{children}</div>
       </Layout>
     )
   },

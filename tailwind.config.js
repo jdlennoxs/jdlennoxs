@@ -3,11 +3,11 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   mode: 'jit',
-  purge: [
+  content: [
     './src/pages/**/*.{js,tsx}',
-    './src/components/**/*.js',
-    './src/layouts/**/*.js',
-    './src/lib/**/*.js',
+    './src/components/**/*.{js,tsx}',
+    './src/layouts/**/*.{js,tsx}',
+    './src/lib/**/*.{js,tsx}',
   ],
   darkMode: 'class',
   theme: {
@@ -19,6 +19,9 @@ module.exports = {
       full: '100vh',
     },
     extend: {
+      maxHeight: {
+        '50vh': '50vh',
+      },
       spacing: {
         '9/16': '56.25%',
       },
@@ -33,23 +36,21 @@ module.exports = {
         serif: ['adobe-caslon-pro', ...defaultTheme.fontFamily.serif],
       },
       colors: {
-        // highlight: '#0F1CE7',
-        // subtle: '#ffcec0',
-        // subtler: '#FBF2EE',
-        // hot: '#ff9191',
-        // fuschia: '#FF8585',
-        teal: colors.teal,
+        light: '#F6FCFB',
+        accent: '#07c38f',
+        primary: '#048052',
+        hot: '#e83a57',
+        dark: '#263154;',
+        base: '#2b2d33;',
+        subtle: '#666E86',
         rose: colors.rose,
-        sky: colors.sky,
-        // primary: colors.blue,
-        gray: colors.blueGray,
-        warm: colors.warmGray,
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
             color: theme('colors.gray.800'),
-            // fontFamily: 'adobe-caslon-pro',
+            lineHeight: 1.7,
+            fontFamily: 'freight-sans-pro',
             a: {
               color: theme('colors.teal.700'),
               '&:hover': {
@@ -60,18 +61,18 @@ module.exports = {
             h1: {
               fontFamily: 'freight-sans-pro',
               fontWeight: '600',
-              letterSpacing: theme('letterSpacing.wider'),
+              letterSpacing: theme('letterSpacing.wide'),
               color: theme('colors.sky.800'),
             },
             h2: {
               fontFamily: 'freight-sans-pro',
               fontWeight: '600',
-              letterSpacing: theme('letterSpacing.wider'),
+              letterSpacing: theme('letterSpacing.wide'),
               color: theme('colors.sky.800'),
             },
             h3: {
               fontFamily: 'freight-sans-pro',
-              letterSpacing: theme('letterSpacing.wider'),
+              letterSpacing: theme('letterSpacing.wide'),
               color: theme('colors.gray.800'),
             },
             'h4,h5,h6': {
@@ -178,9 +179,6 @@ module.exports = {
         },
       }),
     },
-  },
-  variants: {
-    typography: ['dark'],
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }

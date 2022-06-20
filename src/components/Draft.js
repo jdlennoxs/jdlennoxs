@@ -1,5 +1,3 @@
-import PageTitle from './PageTitle'
-
 const Draft = () => (
   <div className="text-center bg-gray-50 py-8 px-24 rounded">
     <span className="text-4xl" role="img" aria-label="roadwork sign">
