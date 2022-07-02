@@ -1,4 +1,4 @@
-interface ArticleMetaProps {
+export interface ArticleMetaProps {
   summary: string
   readingTime: any
 }
@@ -10,7 +10,9 @@ export const ArticleMeta = ({ summary, readingTime }: ArticleMetaProps) => {
         <strong>Summary: </strong>
         {summary}
       </p>
-      <span><strong>{readingTime && readingTime.text}</strong></span>
+      <span>
+        <strong>{readingTime && readingTime.text}</strong>
+      </span>
     </div>
   )
 }

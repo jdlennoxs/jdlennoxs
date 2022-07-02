@@ -1,32 +1,30 @@
-import { BlogCard } from "@/components/blog-card";
-import { BlogHero } from "@/components/blog-hero";
-import LandingPage from "@/components/LandingPage";
-import Link from "@/components/Link";
-import NewsletterForm from "@/components/NewsletterForm";
-import PageTitle from "@/components/PageTitle";
-import { PageSEO } from "@/components/SEO";
-import projectsData from "@/data/projectsData";
-import siteMetadata from "@/data/siteMetadata";
-import { getAllFilesFrontMatter } from "@/lib/mdx";
-import { GetStaticProps } from "next";
+import { BlogCard } from '@/components/blog-card'
+import { BlogHero } from '@/components/blog-hero'
+import LandingPage from '@/components/LandingPage'
+import Link from '@/components/Link'
+import NewsletterForm from '@/components/NewsletterForm'
+import PageTitle from '@/components/PageTitle'
+import { PageSEO } from '@/components/SEO'
+import Starfield from '@/components/starfield'
+import projectsData from '@/data/projectsData'
+import siteMetadata from '@/data/siteMetadata'
+import { getAllFilesFrontMatter } from '@/lib/mdx'
+import { GetStaticProps } from 'next'
 
-const MAX_DISPLAY = 6;
+const MAX_DISPLAY = 6
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllFilesFrontMatter("posts");
+  const posts = await getAllFilesFrontMatter('posts')
 
-  return { props: { posts } };
-};
+  return { props: { posts } }
+}
 
 const Home = ({ posts }: any) => {
   return (
-    <>
-      <PageSEO
-        title={siteMetadata.title}
-        description={siteMetadata.description}
-      />
-      <section>
-        <LandingPage />
+    <div>
+      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+      <section className="h-screen ">
+        <Starfield />
       </section>
 
       {/* <section className="py-6 ">
@@ -87,7 +85,7 @@ const Home = ({ posts }: any) => {
           )}
         </div>
       </section> */}
-      <section className="py-6">
+      {/* <section className="py-6">
         <div className="flex flex-col space-y-10 py-10 content-width">
           <PageTitle>projects</PageTitle>
           <ul className="grid gap-x-4 gap-y-4 md:grid-cols-2 xl:grid-cols-3">
@@ -117,15 +115,15 @@ const Home = ({ posts }: any) => {
             </div>
           )}
         </div>
-      </section>
+      </section> */}
 
-      {siteMetadata.newsletter.provider !== "" && (
+      {siteMetadata.newsletter.provider !== '' && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
         </div>
       )}
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default Home;
+export default Home

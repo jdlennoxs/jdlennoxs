@@ -3,12 +3,7 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   mode: 'jit',
-  content: [
-    './src/pages/**/*.{js,tsx}',
-    './src/components/**/*.{js,tsx}',
-    './src/layouts/**/*.{js,tsx}',
-    './src/lib/**/*.{js,tsx}',
-  ],
+  content: ['./src/**/*.{js,tsx}'],
   darkMode: 'class',
   theme: {
     minHeight: {
@@ -33,7 +28,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['freight-sans-pro', ...defaultTheme.fontFamily.sans],
-        serif: ['adobe-caslon-pro', ...defaultTheme.fontFamily.serif],
+        serif: [' ff-tisa-web-pro', ...defaultTheme.fontFamily.serif],
       },
       colors: {
         light: '#F6FCFB',
@@ -50,7 +45,7 @@ module.exports = {
           css: {
             color: theme('colors.gray.800'),
             lineHeight: 1.7,
-            fontFamily: 'freight-sans-pro',
+            fontFamily: ' ff-tisa-web-pro',
             a: {
               color: theme('colors.teal.700'),
               '&:hover': {

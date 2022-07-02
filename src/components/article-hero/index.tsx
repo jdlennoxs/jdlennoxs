@@ -15,9 +15,11 @@ export const ArticleHero = ({ title, imgSrc, tags, lastmod }: ArticleHeroProps) 
       <div className="full-width">
         <div className="p-8 grid lg:grid-cols-2 gap-x-8 gap-y-4 max-w-7xl mx-auto">
           {imgSrc ? <ResponsiveImage alt={title} src={imgSrc} aspectRatio={1} /> : null}
-          <blockquote className="p-8 lg:order-first flex flex-col text-center justify-center">
+          <blockquote className="p-8  flex flex-col text-center justify-center">
             <Tag text={tags ? tags[0] : ''} />
-            <h1 className="max-w-md mx-auto font-serif font-bold text-3xl lg:text-4xl text-dark p-6">{title}</h1>
+            <h1 className="max-w-md mx-auto font-serif font-bold text-3xl text-dark pt-6">
+              {title}
+            </h1>
             <time>{formatDate(lastmod)}</time>
           </blockquote>
         </div>
