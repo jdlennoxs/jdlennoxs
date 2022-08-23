@@ -4,7 +4,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 module.exports = withBundleAnalyzer({
   images: {
-    domains: ['imgix.datadoghq.com', 'www.educative.io'],
+    domains: [],
     formats: ['image/webp'],
   },
   reactStrictMode: true,
