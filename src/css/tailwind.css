@@ -57,7 +57,7 @@ input:-webkit-autofill:focus {
   }
 
   .header-width {
-    @apply px-2 relative mx-auto md:px-4 max-w-4xl;
+    @apply px-2 relative mx-auto md:px-4 max-w-6xl;
   }
 
   .background-header {

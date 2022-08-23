@@ -17,13 +17,7 @@ export default function Projects() {
         </div>
         <div className="grid gap-x-4 gap-y-4 md:grid-cols-3">
           {projectsData.map((d) => (
-            <BlogCard
-              key={d.title}
-              title={d.title}
-              description={d.description}
-              imgSrc={d.imgSrc}
-              href={d.href}
-            />
+            <BlogCard key={d.title} title={d.title} imgSrc={d.imgSrc} href={d.href} />
           ))}
         </div>
       </div>

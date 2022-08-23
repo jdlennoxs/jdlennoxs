@@ -1,0 +1,64 @@
+---
+title: Yobbies film club website
+date: '2022-06-22'
+tags: ['nextjs', 'neo4j', 'web dev']
+draft: false
+summary:
+coverImage: '/assets/images/yobbies.png'
+layout: PostLayout
+type: project
+---
+
+[Live site](https://yobbies.jdlennoxs.com)
+
+[Source code](https://github.com/jdlennoxs/yobbies)
+
+## What?
+
+This is a website originally built to allow my lockdown film club to track their selections in our weekly film club. Since then the site has grown with more features, statistics and information available. It tracks films and their information, the selection history of those involved, statistics around the films watched and catches the awards presented by the film club.
+
+This started out as a hobby project in lockdown, with the intention of creating a useful tool for a group of friends, the goal was for a low maintenance but potentially extendable application.
+
+## How?
+
+The website in it's current iteration is built using Nextjs to create a fully statically generated website. This choice was made as there was a considerable amount of associated data with each film and actor and that data is only updated once each time the film club meets.
+
+The website is backed by a Neo4j website. Having experimented with graph databases before, I felt this data in this project was the perfect candidate for expressing as a graph relationship.
+
+I made use of an excellent tool called [arrows](arrows.app), which allows data entities and relations to be mapped out as a diagram and can then generate a graphql schema.
+
+<Image src="/assets/images/arrows.svg" height="480" width="600" />
+
+The use of relational data allows for some fairly complex query behaviour without needing multiple complex data manipulations. Relations can be queried in either direction meaning you can easily search for all films starrring an actor, or all the actors featured in a film just by adding the relation to the query, rather than writing complex joins.
+
+```javascript:film with actors query
+const { films } = await query(`
+    { films (
+      where: {slug: "${context.params.id}"}
+      ) {
+          title
+          actorActedIn (
+            options: {
+              sort: [{
+                popularity: DESC
+              }]
+            }
+          ) {
+            name
+            profile_path
+            actedInFilmConnection {
+              edges {
+                roles
+              }
+            }
+          }
+        }
+    }
+  `)
+```
+
+A query to fetch a film and all its actors.
+
+While this is incredibly powerful, it is also at least initially a seemingly complex way of writing queries. Neo4j/graphql does a good job of providing a lot of assisting functions, but it does create a barrier to entry.
+
+On the whole I would highly recommend trying out a graph database if your data structure is relational. Handling databases and queries that map to your actual data in terms of taxonomy and structure can lead to a very pleasant workflow.

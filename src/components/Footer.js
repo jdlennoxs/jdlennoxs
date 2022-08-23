@@ -1,6 +1,6 @@
-import Link from "./Link";
-import siteMetadata from "@/data/siteMetadata";
-import SocialIcon from "@/components/social-icons";
+import Link from './Link'
+import siteMetadata from '@/data/siteMetadata'
+import SocialIcon from '@/components/social-icons'
 
 export default function Footer() {
   return (
@@ -12,7 +12,7 @@ export default function Footer() {
           {/* <SocialIcon kind="facebook" href={siteMetadata.facebook} size="6" />
           <SocialIcon kind="youtube" href={siteMetadata.youtube} size="6" /> */}
           <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size="6" />
-          <SocialIcon kind="twitter" href={siteMetadata.twitter} size="6" />
+          {/* <SocialIcon kind="twitter" href={siteMetadata.twitter} size="6" /> */}
         </div>
         <div className="flex mb-2 space-x-2 text-sm text-white dark:text-gray-400">
           <div>{`© ${new Date().getFullYear()} ${siteMetadata.author}`}</div>
@@ -26,5 +26,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

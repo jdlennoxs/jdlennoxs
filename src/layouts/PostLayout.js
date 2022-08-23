@@ -41,7 +41,7 @@ export default function PostLayout({ toc, frontMatter, authorDetails, next, prev
               {` • `}
               <Link href={editUrl(fileName)}>{'View on GitHub'}</Link>
             </div>
-            <Comments frontMatter={frontMatter} />
+            {/* <Comments frontMatter={frontMatter} /> */}
           </div>
         </div>
       </article>

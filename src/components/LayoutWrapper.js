@@ -11,8 +11,8 @@ const LayoutWrapper = ({ children }) => {
       <div className="w-screen border-b bg-white">
         <header className="flex items-center justify-between py-4 header-width">
           <div className="inline-flex items-baseline justify-between">
-            <Link href="/" aria-label="Tailwind CSS Blog">
-              <div>
+            <Link href="/" aria-label="jdlennoxs">
+              <div className="p-4">
                 {typeof siteMetadata.headerTitle === 'string' ? (
                   <div className="text-gray-800 dark:text-gray-100 h-6 font-semibold tracking-wide">
                     {siteMetadata.headerTitle}
@@ -35,7 +35,7 @@ const LayoutWrapper = ({ children }) => {
                 </Link>
               ))}
             </div>
-            <ThemeSwitch />
+            {/* <ThemeSwitch /> */}
             <MobileNav />
           </div>
         </header>

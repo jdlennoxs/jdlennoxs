@@ -7,6 +7,7 @@ interface ArticleHeroProps {
   imgSrc?: string
   tags: string
   lastmod: string
+  summary: string
 }
 
 export const ArticleHero = ({ title, imgSrc, tags, lastmod }: ArticleHeroProps) => {

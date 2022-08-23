@@ -1,5 +1,3 @@
-import { ReactChild } from 'react'
-
 interface CardProps {
   /**
    * Is this the principal call to action on the page?
@@ -13,7 +11,8 @@ interface CardProps {
   /**
    * The child component to be rendered
    */
-  children: ReactChild
+  children: JSX.Element
+  className?: string
 }
 
 /**
@@ -30,9 +29,7 @@ export const Card = ({
   const roundedStyles = rounded && 'rounded-md'
   const darkStyles = dark ? 'bg-base text-white' : 'bg-white'
   return (
-    <div
-      className={`overflow-hidden ${className} ${borderStyles} ${roundedStyles} ${darkStyles}`}
-    >
+    <div className={`overflow-hidden ${className} ${borderStyles} ${roundedStyles} ${darkStyles}`}>
       {children}
     </div>
   )

@@ -13,36 +13,14 @@ I'm a software engineering team lead based in Bristol, UK.
 
 ### My development journey
 
-<Timeline history={[
-{
-date: '2020 - present',
-role: 'Software Team Lead - [Moneyhub](www.moneyhub.com)',
-description: 'Leading application and product feature development.'
-},
-{
-date: '2017 - 2020',
-role: 'Tech Lead - [Play Sports Network](www.playsportsnetwork.com)',
-description: 'Worked across the development and product teams on a range of projects.'
-},
-{
-date: '2014 - 2017',
-role: 'Software Engineer - IPL',
-description: 'Began my development journey working in Java and AngularJs for a range of clients.'
-},
-{
-date: '2010 - 2014',
-role: 'University of Bristol',
-description: 'Recieved a masters degree in aerospace engineering.'
-}
-]
-}/>
+`{/*<Timeline history={[ { date: '2020 - present', role: 'Software Team Lead - [Moneyhub](www.moneyhub.com)', description: 'Leading application and product feature development.' }, { date: '2017 - 2020', role: 'Tech Lead - [Play Sports Network](www.playsportsnetwork.com)', description: 'Worked across the development and product teams on a range of projects.' }, { date: '2014 - 2017', role: 'Software Engineer - IPL', description: 'Began my development journey working in Java and AngularJs for a range of clients.' }, { date: '2010 - 2014', role: 'University of Bristol', description: 'Recieved a masters degree in aerospace engineering.' } ] }/> */}`
 
 - **2020**
 
   Team lead at [Moneyhub](www.moneyhub.com), Bristol - Leading Application and Product feature development:
 
   - Working in React, React Native and node microservices
-  - Building a team to deliver great features efficiently ((roles available!))[https://moneyhub.livevacancies.co.uk/#/]
+  - Building a team to deliver great features efficiently
   - Working with a great team to build a great environment for development
 
 - **2017**

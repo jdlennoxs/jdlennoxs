@@ -40,12 +40,21 @@ module.exports = {
         subtle: '#666E86',
         rose: colors.rose,
       },
+      animation: {
+        wiggle: 'wiggle 5s ease-in-out infinite',
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)', transform: 'translateY(-5%)' },
+        },
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
             color: theme('colors.gray.800'),
             lineHeight: 1.7,
-            fontFamily: ' ff-tisa-web-pro',
+            fontFamily: 'freight-sans-pro',
             a: {
               color: theme('colors.teal.700'),
               '&:hover': {

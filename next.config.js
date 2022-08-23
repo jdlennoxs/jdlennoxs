@@ -10,7 +10,7 @@ module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   eslint: {
-    dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
+    dirs: ['pages', 'components', 'lib', 'layouts'],
   },
   experimental: { esmExternals: true },
   webpack: (config, { dev, isServer }) => {
@@ -38,6 +38,7 @@ module.exports = withBundleAnalyzer({
         react: 'preact/compat',
         'react-dom/test-utils': 'preact/test-utils',
         'react-dom': 'preact/compat',
+        'react/jsx-runtime.js': require.resolve('react/jsx-runtime'),
       })
     }
 

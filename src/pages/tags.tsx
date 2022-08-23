@@ -13,7 +13,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return { props: { tags } }
 }
 
-export default function Tags({ tags }) {
+export default function Tags({ tags }: { tags: { [key: string]: any } }) {
   const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
   return (
     <>
