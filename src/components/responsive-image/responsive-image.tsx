@@ -11,13 +11,14 @@ export const ResponsiveImage = ({ aspectRatio = 9 / 16, alt, ...props }: Respons
   const { observe, width } = useDimensions<HTMLDivElement | null>()
   return (
     <div className="max-height-container" ref={observe}>
-      <Image
+      <img
         {...props}
         alt={alt}
-        layout="responsive"
-        width={width}
-        height={width * aspectRatio}
-        objectFit="cover"
+        className={`bg-cover w-[${width}] h-[${width * aspectRatio}]`}
+        // layout="responsive"
+        // width={width}
+        // height={width * aspectRatio}
+        // objectFit="cover"
       />
     </div>
   )
